@@ -21,6 +21,8 @@ namespace CreditCardScanApp.iOS
         {
             InitCreditCardService();
             var cardIOPaymentViewController = new CardIOPaymentViewController(this);
+            cardIOPaymentViewController.ScanExpiry = true;
+            cardIOPaymentViewController.CollectCardholderName = true;
             _viewController.PresentViewController(cardIOPaymentViewController,true,null);
         }
 
@@ -42,6 +44,11 @@ namespace CreditCardScanApp.iOS
         public override void UserDidProvideCreditCardInfo(CreditCardInfo cardInfo, CardIOPaymentViewController paymentViewController)
         {
             _creditCardInfo = cardInfo;
+
+            Debug.WriteLine($"CardholderName : {cardInfo.CardholderName}");
+            Debug.WriteLine($"Card Type : {cardInfo.CardType}");
+            Debug.WriteLine($"ExpiryMonth : {cardInfo.ExpiryMonth}");
+            Debug.WriteLine($"ExpiryYear : {cardInfo.ExpiryYear}");
 
             paymentViewController.DismissViewController(true, null);
         }

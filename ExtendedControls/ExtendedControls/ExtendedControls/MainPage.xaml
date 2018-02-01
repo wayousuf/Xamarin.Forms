@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ExtendedControls"
+             x:Class="ExtendedControls.MainPage"
+             xmlns:controls="clr-namespace:ExtendedControls.Controls;assembly=ExtendedControls">
+
+    <Application.Resources>
+        <!-- Application resource dictionary -->
+        <ResourceDictionary>
+            <Color x:Key="StatusGreenColor">#8bc34a</Color>
+            <Color x:Key="ErrorColor">#dd2c00</Color>
+        </ResourceDictionary>
+    </Application.Resources>
+
+    <Grid Grid.Row="7" RowSpacing="25" ColumnSpacing="35" Padding="0,25,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />            
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.5*" />
+            <ColumnDefinition Width="0.5*" />
+            <ColumnDefinition Width="0.5*" />
+        </Grid.ColumnDefinitions>
+        <BoxView Grid.Row="0" Grid.ColumnSpan="3" BackgroundColor="#9e9e9e"  HeightRequest="1" VerticalOptions="Start" Margin="-68,0,-20,0" />
+        <Label Grid.Row="0" Grid.ColumnSpan="2" Text="Select Dates" TextColor="Black" FontSize="30" Margin="0,25,0,0" />
+        <StackLayout Grid.Row="1" Grid.Column="0">
+            <Label Text="CHECKOUT DATE" />
+            <StackLayout Orientation="Horizontal" Spacing="20">
+                <controls:ExtendedTimePicker />
+                <controls:ExtendedEntry Text="This is just for testing" />
+            </StackLayout>
+        </StackLayout>        
+    </Grid>
+    
+</ContentPage>

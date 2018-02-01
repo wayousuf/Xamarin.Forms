@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Autocomplete"
+             x:Class="Autocomplete.MainPage"
+             xmlns:controls="clr-namespace:Autocomplete.Controls;assembly=Autocomplete"   >
+    
+    <Grid BackgroundColor="#f2f2f4">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="48" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <!-- The search bar -->
+        <Grid Grid.Row="0" Padding="0,0,0,1" BackgroundColor="#ceced0">
+            <Grid BackgroundColor="#ffffff">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="48" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="48" />
+                </Grid.ColumnDefinitions>
+                <Label Text="" FontFamily="FontAwesome" FontSize="16" TextColor="#9d9d9f" HorizontalOptions="Center" VerticalOptions="Center" />
+                <Entry HorizontalTextAlignment="Center" FontFamily="Ubuntu" FontSize="14" PlaceholderColor="#9d9d9f" Placeholder="Search for a smoothie or ingredient" Grid.Column="1" />
+            </Grid>
+        </Grid>
+        <!-- The list view -->
+        <controls:NonSelectableListView x:Name="listView" Grid.Row="1" BackgroundColor="Transparent" HasUnevenRows="true" SeparatorVisibility="None">
+            <controls:NonSelectableListView.Header>
+                <StackLayout Padding="0,16,0,14">
+                    <Label Text="- SEARCHED RESULT -" TextColor="#9c9c9e" FontFamily="Ubuntu" FontSize="14" HorizontalOptions="Center" />
+                </StackLayout>
+            </controls:NonSelectableListView.Header>
+            <controls:NonSelectableListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="10" RowSpacing="0">
+                            <Frame Padding="0">
+                                <Grid Padding="10" BackgroundColor="#ffffff">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="1" />
+                                        <RowDefinition Height="2*" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <!--header section-->
+                                    <Grid Grid.Row="0" RowSpacing="0" ColumnSpacing="0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="auto" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="auto" />
+                                            <ColumnDefinition Width="auto" />
+                                        </Grid.ColumnDefinitions>
+                                        <Image Grid.RowSpan="2" Grid.Column="0" Source="ic_user.png" Margin="10,10,0,0" />
+                                        <StackLayout Grid.Row="0" Grid.Column="1" Orientation="Horizontal" Padding="10" Spacing="20">
+                                            <Label Text="Waqas Yousuf" FontSize="30" FontAttributes="Bold" TextColor="#000000" />
+                                            <StackLayout BackgroundColor="#8bc34a" VerticalOptions="Center" Padding="8">
+                                                <Label Text="Booked" TextColor="#ffffff" FontAttributes="Bold" />
+                                            </StackLayout>
+                                        </StackLayout>
+                                        <StackLayout Grid.Row="1" Grid.Column="1" Margin="12,-5,0,0" Orientation="Horizontal">
+                                            <Label Text="January 9, 2018 8:37 AM - January 18, 2018 8:37 AM" TextColor="#757575"  />
+                                            <Label Text="(9 days)" FontSize="Small" Margin="0,2,0,0" FontAttributes="Bold" TextColor="#757575" />
+                                        </StackLayout>
+                                    </Grid>
+
+                                    <!--seperator line-->
+                                    <BoxView Grid.Row="1" BackgroundColor="#757575" />
+                                    <!--two column grid-->
+                                    <Grid Grid.Row="2"  Margin="80,40,0,0" RowSpacing="30">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="auto" />
+                                            <RowDefinition Height="auto" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="0.5*" />
+                                            <ColumnDefinition Width="0.5*" />
+                                        </Grid.ColumnDefinitions>
+                                        <StackLayout Grid.Row="0" Grid.Column="0" >
+                                            <Label Text="PHONE" TextColor="#757575" FontSize="Small"/>
+                                            <Label Text="+1-978 294 (9044)" TextColor="#757575" />
+                                        </StackLayout>
+                                        <StackLayout Grid.Row="0" Grid.Column="1" >
+                                            <Label Text="EMAIL ADDRESS" TextColor="#757575" FontSize="Small"/>
+                                            <Label Text="wyousuf@tsdweb.com" TextColor="#757575" />
+                                        </StackLayout>
+                                        <StackLayout Grid.Row="1" Grid.Column="0" >
+                                            <Label Text="DRIVER'S LICENSE" TextColor="#757575" FontSize="Small" />
+                                            <Label Text="0030098(Massachusetts, United States)" TextColor="#757575" />
+                                        </StackLayout>
+                                    </Grid>
+                                    <!--bottom buttons-->
+                                    <StackLayout Grid.Row="3">
+                                        <StackLayout Orientation="Horizontal" Spacing="25" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" Margin="20">
+                                            <Label Text="CREATE AGREEMENT" FontSize="Medium" FontAttributes="Bold" TextColor="#757575" />
+                                            <Label Text="CANCEL" FontSize="Medium" FontAttributes="Bold" TextColor="#757575" />
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Grid>
+                            </Frame>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </controls:NonSelectableListView.ItemTemplate>
+        </controls:NonSelectableListView>
+    </Grid>
+</ContentPage>
